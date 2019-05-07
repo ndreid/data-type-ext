@@ -1,0 +1,16 @@
+{
+  "name": "data-type-ext",
+  "version": "1.0.0",
+  "description": "Javascript library to fill in the missing extenstions Data Types should have",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "datatype",
+    "type",
+    "extension"
+  ],
+  "author": "Nathan Reid",
+  "license": "MIT"
+}
