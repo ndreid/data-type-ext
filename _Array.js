@@ -27,6 +27,16 @@ export function removeAt(array, index) {
   array.splice(index, 1);
 }
 
+/**
+ * Find the last index that matches the given predicate
+ * @param {Array} array 
+ * @param {Function} predicate 
+ */
+export function findLastIndex(array, predicate) {
+  let idx = array.reverse().findIndex(predicate)
+  return idx === -1 ? idx : array.length - 1 - idx
+}
+
 export default {
-  move, insertAt, removeAt
+  move, insertAt, removeAt, findLastIndex
 }
