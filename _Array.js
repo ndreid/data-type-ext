@@ -64,7 +64,7 @@ export function removeManyAt(array, index, length) {
  * @param {Function} predicate 
  */
 export function findLastIndex(array, predicate) {
-  let idx = array.reverse().findIndex(predicate);
+  let idx = [...array].reverse().findIndex(predicate);
   return idx === -1 ? idx : array.length - 1 - idx;
 }
 
