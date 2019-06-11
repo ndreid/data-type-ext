@@ -69,5 +69,5 @@ export function findLastIndex(array, predicate) {
 }
 
 export default {
-  move, insertAt, removeAt, findLastIndex
+  move, moveMany, insertAt, insertManyAt, removeAt, removeManyAt, findLastIndex
 }
