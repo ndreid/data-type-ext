@@ -17,6 +17,19 @@ export function toCurrency(value, n = 2, thousandSeparator = ',') {
   return '$ ' + value.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&' + thousandSeparator)
 }
 
+/**
+ * Checks if value is between 2 numbers
+ * @param {Number} value 
+ * @param {Number} n1 
+ * @param {Number} n2 
+ * @param {Boolean} inclusing 
+ */
+export function isBetween(value, n1, n2, inclusive = true) {
+  return inclusive
+    ? Math.min(n1,n2) >= value && value <= Math.max(n1,n2)
+    : Math.min(n1,n2) > value && value < Math.max(n1,n2)
+}
+
 export default {
   isNumber, toFixed
 }
