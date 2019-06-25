@@ -26,8 +26,8 @@ export function toCurrency(value, n = 2, thousandSeparator = ',') {
  */
 export function isBetween(value, n1, n2, inclusive = true) {
   return inclusive
-    ? Math.min(n1,n2) >= value && value <= Math.max(n1,n2)
-    : Math.min(n1,n2) > value && value < Math.max(n1,n2)
+    ? Math.min(n1,n2) <= value && value >= Math.max(n1,n2)
+    : Math.min(n1,n2) < value && value > Math.max(n1,n2)
 }
 
 export default {
