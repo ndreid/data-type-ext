@@ -31,5 +31,5 @@ export function isBetween(value, n1, n2, inclusive = true) {
 }
 
 export default {
-  isNumber, toFixed
+  isNumber, toFixed, toCurrency, isBetween
 }
