@@ -67,6 +67,7 @@ export function addMilliseconds(value, milliseconds) {
   return toString(d)
 }
 export function getYear(value) { return isDate(value) ? new Date(value).getFullYear() : undefined }
+export function getQuarter(value) { return isDate(value) ? Math.floor(new Date(value).getMonth() / 3) + 1 : undefined }
 export function getMonth(value) { return isDate(value) ? new Date(value).getMonth() : undefined }
 export function getDay(value) { return isDate(value) ? new Date(value).getDate() : undefined }
 export function getWeekday(value) { return isDate(value) ? new Date(value).getDay() : undefined }
@@ -204,6 +205,6 @@ const ord = n => {
 export default {
   isDate, isEqual, isBefore, isAfter, diff,
   addYears, addMonths, addDays, addHours, addMinutes, addSeconds, addMilliseconds,
-  getYear, getMonth, getDay, getWeekday, getHours, getMinutes, getSeconds, getMilliseconds,
+  getYear, getQuarter, getMonth, getDay, getWeekday, getHours, getMinutes, getSeconds, getMilliseconds,
   format, toString
 }
