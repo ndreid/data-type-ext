@@ -17,13 +17,30 @@ export function isAfter(value, date) {
 /**
  * Gets the difference between two dates.
  * @param {*} value
- * @param {*} date 
- * @returns {Number} Difference of the dates in milliseconds
+ * @param {*} date
+ * @param {*} unit 
+ * @returns {Number} Difference of two dates
  */
-export function diff(value, date) {
+export function diff(value, date, unit = 'millisecond') {
   if (!isDate(value) || !isDate(date)) return undefined
-  return new Date(value).valueOf() - new Date(date).valueOf()
+  if (unit === 'month' || unit === 'quarter' || unit === 'year') {
+    
+  } else {
+    let ms = new Date(value).valueOf() - new Date(date).valueOf()
+    return Math.floor(
+        unit === 'millisecond' ? ms
+      : unit === 'second'  ? ms / 1e3         // 1000
+      : unit === 'minute'  ? ms / 6e4         // 1000 / 60
+      : unit === 'hour'    ? ms / 36e5        // 1000 / 60 / 60
+      : unit === 'day'     ? ms / 864e5       // 1000 / 60 / 60 / 24
+      : unit === 'week'    ? ms / 6048e5      // 1000 / 60 / 60 / 24 / 7
+      : unit === 'month'   ? ms / 18342072e3  // 1000 / 60 / 60 / 24 / 7 / 30.3275
+      : unit === 'quarter' ? ms / 55026216e3  // 1000 / 60 / 60 / 24 / 7 / 30.3275 / 3
+      : unit === 'year'    ? ms / 220204864e3 // 1000 / 60 / 60 / 24 / 7 / 30.3275 / 3 / 4
+      : undefined)
+  }
 }
+
 export function addYears(value, years) {
   if (!isDate(value) || isNaN(years)) return undefined
   let d = new Date(value)
