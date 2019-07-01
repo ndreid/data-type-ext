@@ -27,7 +27,7 @@ export function diff(value, date, unit = 'millisecond') {
     
   } else {
     let ms = new Date(value).valueOf() - new Date(date).valueOf()
-    return Math.floor(
+    return Math.round(
         unit === 'millisecond' ? ms
       : unit === 'second'  ? ms / 1e3         // 1000
       : unit === 'minute'  ? ms / 6e4         // 1000 / 60
