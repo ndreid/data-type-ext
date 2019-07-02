@@ -68,6 +68,14 @@ export function findLastIndex(array, predicate) {
   return idx === -1 ? idx : array.length - 1 - idx;
 }
 
+/**
+ * Combines arrays while removing duplicates
+ * @param  {...Array} arrays 
+ */
+export function merge(...arrays) {
+  return [...new Set([].concat(...arrays))]
+}
+
 export default {
-  move, moveMany, insertAt, insertManyAt, removeAt, removeManyAt, findLastIndex
+  move, moveMany, insertAt, insertManyAt, removeAt, removeManyAt, findLastIndex, merge
 }

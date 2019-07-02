@@ -1,6 +1,6 @@
 {
   "name": "data-type-ext",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Javascript library to fill in the missing extenstions Data Types should have",
   "main": "index.js",
   "scripts": {
