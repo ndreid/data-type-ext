@@ -92,6 +92,16 @@ export function getHours(value) { return isDate(value) ? new Date(value).getHour
 export function getMinutes(value) { return isDate(value) ? new Date(value).getMinutes() : undefined }
 export function getSeconds(value) { return isDate(value) ? new Date(value).getSeconds() : undefined }
 export function getMilliseconds(value) { return isDate(value) ? new Date(value).getMilliseconds() : undefined }
+export function getDaysBetween(start, end) {
+  if (!isDate(start) || !isDate(end)) return undefined
+  let days = []
+  let startDt = new Date(start)
+  while (startDt <= new Date(end)) {
+    days.push(format(startDt))
+    startDt.setDate(startDt.getDate() + 1)
+  }
+  return days
+}
 /**
 * Converts the value a Date object to its equivalent string representation.
 
@@ -222,6 +232,6 @@ const ord = n => {
 export default {
   isDate, isEqual, isBefore, isAfter, diff,
   addYears, addMonths, addDays, addHours, addMinutes, addSeconds, addMilliseconds,
-  getYear, getQuarter, getMonth, getDay, getWeekday, getHours, getMinutes, getSeconds, getMilliseconds,
+  getYear, getQuarter, getMonth, getDay, getWeekday, getHours, getMinutes, getSeconds, getMilliseconds, getDaysBetween,
   format, toString
 }
