@@ -30,6 +30,17 @@ export function isBetween(value, n1, n2, inclusive = true) {
     : Math.min(n1,n2) < value && value < Math.max(n1,n2)
 }
 
+/**
+ * Gets the decimal portion of a number
+ * @param {number} value
+ */
+export function getDecimal(value) {
+  if (isNaN(value))
+    return undefined
+  let str = value.toString()
+  return str.includes('.') ? str.split('.')[1] : 0
+}
+
 export default {
-  isNumber, toFixed, toCurrency, isBetween
+  isNumber, toFixed, toCurrency, isBetween, getDecimal
 }
