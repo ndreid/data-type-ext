@@ -33,12 +33,13 @@ export function isBetween(value, n1, n2, inclusive = true) {
 /**
  * Gets the decimal portion of a number
  * @param {number} value
+ * @returns {number}
  */
 export function getDecimal(value) {
   if (isNaN(value))
     return undefined
   let str = value.toString()
-  return str.includes('.') ? str.split('.')[1] : 0
+  return str.includes('.') ? +str.split('.')[1] : 0
 }
 
 export default {
