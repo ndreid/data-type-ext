@@ -85,7 +85,7 @@ export function addMilliseconds(value, milliseconds) {
 }
 export function getYear(value) { return isDate(value) ? new Date(value).getFullYear() : undefined }
 export function getQuarter(value) { return isDate(value) ? Math.floor(new Date(value).getMonth() / 3) + 1 : undefined }
-export function getMonth(value) { return isDate(value) ? new Date(value).getMonth() : undefined }
+export function getMonth(value) { return isDate(value) ? new Date(value).getMonth() + 1 : undefined }
 export function getDay(value) { return isDate(value) ? new Date(value).getDate() : undefined }
 export function getWeekday(value) { return isDate(value) ? new Date(value).getDay() : undefined }
 export function getHours(value) { return isDate(value) ? new Date(value).getHours() : undefined }
@@ -102,6 +102,12 @@ export function getDaysBetween(start, end) {
   }
   return days
 }
+export function startOfYear(value) { return isDate(value) ? '1/1/' + getYear(value) : undefined }
+export function endOfYear(value) { return isDate(value) ? '12/31/' + getYear(value) : undefined }
+export function startOfQuarter(value) { return isDate(value) ? getQuarter(value) * 3 - 2 + '/1/' + getYear(value) : undefined }
+export function endOfQuarter(value) { return isDate(value) ? addDays(addMonths(getQuarter(value) * 3 + '/1/' + getYear(value), 1), -1) : undefined }
+export function startOfMonth(value) { return isDate(value) ? getMonth(value) + '/1/' + getYear(value) : undefined }
+export function endOfMonth(value) { return isDate(value) ? addDays(addMonths(getMonth(value) + '/1/' + getYear(value), 1), -1) : undefined }
 /**
 * Converts the value a Date object to its equivalent string representation.
 
@@ -233,5 +239,6 @@ export default {
   isDate, isEqual, isBefore, isAfter, diff,
   addYears, addMonths, addDays, addHours, addMinutes, addSeconds, addMilliseconds,
   getYear, getQuarter, getMonth, getDay, getWeekday, getHours, getMinutes, getSeconds, getMilliseconds, getDaysBetween,
+  startOfYear, endOfYear, startOfQuarter, endOfQuarter, startOfMonth, endOfMonth,
   format, toString
 }
