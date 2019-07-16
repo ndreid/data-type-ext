@@ -8,5 +8,5 @@ export const spaceCamelCase = str => {
 }
 
 export default {
-  insertSpaces
+  spaceCamelCase
 }
