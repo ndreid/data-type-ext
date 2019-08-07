@@ -76,6 +76,28 @@ export function merge(...arrays) {
   return [...new Set([].concat(...arrays))]
 }
 
+/**
+ * Returns values that are in both arrays
+ * @param {Array} array1 
+ * @param {Array} array2 
+ */
+export function same(array1, array2) {
+  return array1.filter(function(value) {
+    return array2.includes(value)
+  }) 
+}
+
+/**
+ * Returns values in array1 that are not in array2
+ * @param {Array} array1
+ * @param {Array} array2
+ */
+export function diff(array1, array2) {
+  return array1.filter(function(value) {
+    return !array2.includes(value)
+  })
+}
+
 export default {
-  move, moveMany, insertAt, insertManyAt, removeAt, removeManyAt, findLastIndex, merge
+  move, moveMany, insertAt, insertManyAt, removeAt, removeManyAt, findLastIndex, merge, same, diff
 }
