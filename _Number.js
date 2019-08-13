@@ -1,4 +1,4 @@
-export function isNumber(value) { return !isNaN(value) }
+export function isNumber(value) { return !(value === null || isNaN(value)) }
 /**
  * Converts number to string with n decimal places
  * @param {String} value 
