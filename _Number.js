@@ -6,13 +6,13 @@ export function isNumber(value) { return !(value === null || isNaN(value)) }
  * @returns {String}
  */
 export function toFixed(value, n = 2, thousandSeparator = ',') {
-  if (isNaN(value)) return ''
+  if (!isNumber(value)) return ''
   var re = '\\d(?=(\\d{3})+' + (n > 0 ? '\\.' : '$') + ')'
   return value.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&' + thousandSeparator)
 }
 
 export function toCurrency(value, n = 2, thousandSeparator = ',') {
-  if (isNaN(value)) { return '' }
+  if (!isNumber(value)) { return '' }
   var re = '\\d(?=(\\d{3})+' + (n > 0 ? '\\.' : '$') + ')'
   return '$ ' + value.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&' + thousandSeparator)
 }
@@ -36,7 +36,7 @@ export function isBetween(value, n1, n2, inclusive = true) {
  * @returns {number}
  */
 export function getDecimal(value) {
-  if (isNaN(value))
+  if (!isNumber(value))
     return undefined
   let str = value.toString()
   return str.includes('.') ? +str.split('.')[1] : 0
