@@ -1,5 +1,5 @@
 export function isDate(value) {
-  return !isNaN(new Date(value))
+  return value !== null && !isNaN(new Date(value))
 }
 export function isEqual(value, date) {
   if (value === undefined && date === undefined) return true
