@@ -10,7 +10,6 @@ Install using [npm](https://www.npmjs.com/get-npm)
 
 ```sh
 npm install data-type-ext
-git clone https://github.com/ndreid/drill-schedule.git
 ```
 
 ## Usage
